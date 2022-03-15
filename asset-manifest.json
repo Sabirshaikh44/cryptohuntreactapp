@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/cryptohuntreactapp/static/css/main.c215bfe1.css",
+    "main.js": "/cryptohuntreactapp/static/js/main.83687add.js",
+    "static/js/787.b9441adf.chunk.js": "/cryptohuntreactapp/static/js/787.b9441adf.chunk.js",
+    "index.html": "/cryptohuntreactapp/index.html",
+    "main.c215bfe1.css.map": "/cryptohuntreactapp/static/css/main.c215bfe1.css.map",
+    "main.83687add.js.map": "/cryptohuntreactapp/static/js/main.83687add.js.map",
+    "787.b9441adf.chunk.js.map": "/cryptohuntreactapp/static/js/787.b9441adf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c215bfe1.css",
+    "static/js/main.83687add.js"
+  ]
+}
