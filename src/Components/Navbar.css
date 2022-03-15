@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+:root{
+    --mont-font : 'Montserrat', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--mont-font);
+}
+.navbar{
+    background: #0b0920;
+    padding: 2rem 4rem;
+    cursor: pointer;
+}
+.navbar h1{
+    color: #f1c40f;
+}
+@media screen and (max-width: 40rem) {
+    .navbar{
+        padding: 1rem 2rem;
+    }
+    .navbar h1{
+        font-size: 1.3rem;
+    }
+}
