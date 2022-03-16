@@ -17,7 +17,7 @@ export default function SingleCoin() {
   }
   useEffect(() => {
     getSingleCoinData();
-  }, []);
+  },[]);
   return (
     <div>
       <Navbar />
