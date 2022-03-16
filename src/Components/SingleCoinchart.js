@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ChartJS } from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import { Chart as ChartJS, registerables } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+ChartJS.register(...registerables);
+
 
 export default function SingleCoinchart({ currency }) {
   let { id } = useParams();
@@ -30,7 +32,7 @@ export default function SingleCoinchart({ currency }) {
       {!coinHistoricData ? (
         <h3>Loading graphical data... of {id}</h3>
       ) : (
-        <>
+      
           <Line
             data={{
               labels: coinHistoricData.map((coindata) => {
@@ -65,7 +67,7 @@ export default function SingleCoinchart({ currency }) {
               responsive: true,
             }}
           />
-        </>
+      
       )}
       {/* <Line
       
