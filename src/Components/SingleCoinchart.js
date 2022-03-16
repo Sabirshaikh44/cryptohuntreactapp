@@ -19,7 +19,7 @@ export default function SingleCoinchart({ currency }) {
     getHistoricData();
   }, [currency]);
 
-  console.log(coinHistoricData);
+  // console.log(coinHistoricData);
   return (
     <div className="coin-graph">
       <h1>

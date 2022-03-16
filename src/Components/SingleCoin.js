@@ -7,7 +7,7 @@ import SingleCoinchart from "./SingleCoinchart";
 
 export default function SingleCoin() {
   let { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const [singleCoinData, setsingleCoinData] = useState([]);
   // console.log(singleCoinData);
   function getSingleCoinData() {

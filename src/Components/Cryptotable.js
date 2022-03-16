@@ -5,8 +5,7 @@ import "./Cryptotable.css";
 export default function Cryptotable() {
   const history = useHistory();
   const [coinData, setcoinData] = useState([]);
-  // console.log(coinData);
- 
+ console.log(coinData)
   function getCoinData() {
     fetch(
       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=INR&order=market_cap_desc&per_page=30&page=1&sparkline=false"
@@ -15,6 +14,7 @@ export default function Cryptotable() {
       .then((data) => setcoinData(data));
      
   }
+  
   
   
 
@@ -33,12 +33,13 @@ export default function Cryptotable() {
             <tr>
               <th>Coin</th>
               <th>Price</th>
-              <th>24h Volume</th>
+              <th>24h change</th>
               <th>MKt Cap</th>
             </tr>
           </thead>
           <tbody>
             {coinData ? coinData.map((coinsdata, index) => {
+              const profit = coinsdata.price_change_percentage_24h > 0
               return (
                 // location(`/Pages/SingleCoin/${coinsdata.id}`)
                 <tr key={index}>
@@ -53,7 +54,10 @@ export default function Cryptotable() {
                     </div>
                   </td>
                   <td>₹{coinsdata.current_price.toLocaleString()}</td>
-                  <td>₹{coinsdata.total_volume.toLocaleString()}</td>
+                  <td style={{
+                    color: profit > 0 ? "green" : "red",fontWeight: 500,
+                  }}>
+                    {profit && "+"}{coinsdata.price_change_percentage_24h.toFixed(2)}%</td>
                   <td>₹{coinsdata.market_cap.toLocaleString()}</td>
                 </tr>
               );
