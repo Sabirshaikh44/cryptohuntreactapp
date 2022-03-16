@@ -6,18 +6,21 @@ import "./SingleCoin.css";
 import SingleCoinchart from "./SingleCoinchart";
 
 export default function SingleCoin() {
-  let { id } = useParams();
+ let { id } = useParams();
+  
   // console.log(id);
   const [singleCoinData, setsingleCoinData] = useState([]);
   // console.log(singleCoinData);
-  function getSingleCoinData() {
-    fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
-      .then((response) => response.json())
-      .then((singlecoinData) => setsingleCoinData(singlecoinData));
-  }
+ 
+
   useEffect(() => {
-    getSingleCoinData();
-  },[]);
+    function getSingleCoinData() {
+      fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
+        .then((response) => response.json())
+        .then((singlecoinData) => setsingleCoinData(singlecoinData));
+    }
+    getSingleCoinData()
+  },[id]);
   return (
     <div>
       <Navbar />
@@ -26,7 +29,7 @@ export default function SingleCoin() {
           <div className="singlecoin--info">
             {singleCoinData.name ? (
               <div>
-                <img src={singleCoinData.image.large} />
+                <img src={singleCoinData.image.large} alt="images"/>
                 <h1 className="coin--name">{singleCoinData.name}</h1>
                 <p className="singlecoin--desc">
                   {HTMLReactParser(

@@ -6,18 +6,19 @@ import { Line } from "react-chartjs-2";
 export default function SingleCoinchart({ currency }) {
   let { id } = useParams();
   // console.log(id, currency);
-  const [coinHistoricData, setcoinHistoricData] = useState();
+  const [coinHistoricData, setcoinHistoricData] = useState([]);
   // console.log("his data", coinHistoricData);
   const [Days, setDays] = useState(1);
-  function getHistoricData() {
-    fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${Days}
-    `)
-      .then((response) => response.json())
-      .then((coinData) => setcoinHistoricData(coinData.prices));
-  }
+ 
   useEffect(() => {
-    getHistoricData();
-  }, [currency]);
+    function getHistoricData() {
+      fetch(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${Days}
+      `)
+        .then((response) => response.json())
+        .then((coinData) => setcoinHistoricData(coinData.prices),setDays(1));
+    }
+    getHistoricData()
+  },[Days,currency,id]);
 
   // console.log(coinHistoricData);
   return (
